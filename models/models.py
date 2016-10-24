@@ -3,9 +3,9 @@
 from openerp import api, models, fields
 #from datetime import datetime
 #from openerp import tools
-#import logging
+import logging
 
-#_mylog = logging.getLogger('YUSTAS#################################################')
+_mylog = logging.getLogger('YUSTAS#################################################')
 
 
 class note_note(models.Model):
@@ -16,7 +16,7 @@ class note_note(models.Model):
     @api.multi
     def open_mess(self):
         if self.mess_id:
-#            _mylog.info("Mess id is %s" % (self.mess_id.id))
+            _mylog.info("Mess id is %s" % (self.mess_id.id))
             return {
                 'type': 'ir.actions.client',
                 'tag': 'mail.wall',
@@ -35,5 +35,6 @@ class mail_message(models.Model):
     
     @api.multi
     def create_note(self):
-#        _mylog.info('Need to create NOTE!')
-        self.res_id = self.env['note.note'].create({'name':self.subject, 'memo':self.body, 'mess_id':self.id})
+        _mylog.info('Need to create NOTE!')
+        self.env['note.note'].create({'name':self.subject, 'memo':self.body, 'mess_id':self.id})
+        return True

@@ -1,21 +1,15 @@
-openerp.mess_to_note = function(openerp) {
-//openerp.mail_extended = function(openerp) {
+openerp.mail_to_note = function(openerp) {
     var _t = openerp.web._t;
     var initial_mode = "view"
     var QWeb = openerp.web.qweb;
 
     openerp.mail.ThreadMessage.include({
         bind_events: function () {
-//        bind_events_note: function () {
             var self = this;
             this._super();
-            // header icons bindings
             this.$el.find('.oe_msg_create_note').on('click', this.on_create_note);
-//            this.$el.find('.oe_msg_forward').on('click', this.on_create_note);
-//            this.$el.find('.oe_msg_forward').on('click', this.on_forward_message);
         },
         on_create_note: function (default_composition_mode) {
-//        on_forward_message: function (default_composition_mode) {
             var self = this
             messages = []
             attachment_ids = []
@@ -24,19 +18,8 @@ openerp.mess_to_note = function(openerp) {
                     attachment_ids.push(attachment.id)
             });
             var values = new openerp.web.Model('mail.message').call('create_note', [[this.id]])
-//            var values = new openerp.web.Model('mail.message').call('forward_message', [[this.id], attachment_ids])
             values.done(function(vals) {
                 console.log("valsvalsvalsvalsvals",vals)
-                /*action = {
-                    'type': 'ir.actions.act_window',
-                    'res_model': 'mail.compose.message',
-                    'view_mode': 'form',
-                    'view_type': 'form',
-                    'views': [[false, 'form']],
-                    'target': 'new',
-                    'context' : vals
-                }
-                self.do_action(action);*/
             })
         },
     })

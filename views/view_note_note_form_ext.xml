@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='stage_id']" position='before'>
                     <field name="mess_id" invisible="1"/>
-                    <button name="open_mess" type='object' string='Open origin'/>
+                    <button name="open_mess" type='object' string='Open origin' attrs="{'invisible':[('mess_id','=',False)]}"/>
                 </xpath>
             </field>
         </record>

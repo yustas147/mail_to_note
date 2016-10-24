@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- inherited the assets_backend for adding ref for js and css file -->
+        <template id="assets_backend" name="mail_to_note assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/mess_to_note/static/src/css/mail_to_note.css"/>
+                <script type="text/javascript" src="/mess_to_note/static/src/js/mail_to_note.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
